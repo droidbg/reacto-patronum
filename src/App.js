@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import TicTacToe from './pages/TicTacToe';
+import TicTacToe from './pages/TicTacToe/TicTacToe';
 import HooksPractice from './pages/HooksPractice';
 import Projects from './pages/Projects';
 import './App.css';

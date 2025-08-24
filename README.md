@@ -63,3 +63,18 @@ Reload the app and check DevTools Console.
 ---
 
  
+
+
+
+ How to add a new example quickly
+Create a page in src/pages/, e.g., FormsPlayground.js.
+Add a route in 
+src/App.js
+:
+jsx
+<Route path="/forms-playground" element={<FormsPlayground />} />
+Link it in 
+src/components/Navbar.js
+ or list it in 
+src/pages/Projects.js
+.

@@ -4,9 +4,15 @@ const TicTacToe = () => {
   return (
     <div>
       <h1>Tic Tac Toe</h1>
-      <p>This is where the Tic Tac Toe game will be.</p>
+      <Square />
     </div>
   );
 };
 
 export default TicTacToe;
+
+
+
+export function Square() {
+  return <button className="square">X</button>;
+}
