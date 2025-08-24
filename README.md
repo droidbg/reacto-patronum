@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# React Learning Hub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A single React app to organize and showcase your practice projects and concept demos (e.g., Tic-Tac-Toe, Hooks exercises), each under its own route. Keep everything in one codebase with clear separation.
 
-## Available Scripts
+## Quick Start
 
-In the project directory, you can run:
+- **Install**: `npm install`
+- **Run dev server**: `npm start`
+- Open: http://localhost:3000
 
-### `npm start`
+## Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `src/components/` — shared UI like `Navbar`
+- `src/pages/` — one file per example/demo (e.g., `TicTacToe.js`, `HooksPractice.js`, `Projects.js`, `Home.js`)
+- `src/App.js` — routes and layout
+- `src/index.js` — wraps app with `BrowserRouter`
+- `public/` — static assets and `index.html`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Routing
 
-### `npm test`
+Uses `react-router-dom` to map pages to URLs:
+- `/` → Home
+- `/projects` → Projects listing
+- `/tic-tac-toe` → Tic-Tac-Toe
+- `/hooks-practice` → Hooks demos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Add a New Example
 
-### `npm run build`
+1) Create a page under `src/pages/`, e.g. `FormsPlayground.js`:
+```jsx
+import React from 'react';
+export default function FormsPlayground(){
+  return <div><h1>Forms Playground</h1></div>;
+}
+```
+2) Register the route in `src/App.js`:
+```jsx
+import FormsPlayground from './pages/FormsPlayground';
+// inside <Routes>
+<Route path="/forms-playground" element={<FormsPlayground />} />
+```
+3) Link it from `src/components/Navbar.js` and/or list it in `src/pages/Projects.js`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Web Vitals (Performance)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`src/reportWebVitals.js` can log CLS, FID, FCP, LCP, TTFB. To see metrics in console:
+```js
+// src/index.js
+import reportWebVitals from './reportWebVitals';
+reportWebVitals(console.log);
+```
+Reload the app and check DevTools Console.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Troubleshooting
 
-### `npm run eject`
+- React Router DOM v7 requires Node >= 20. On Node 18, use a v6 release:
+  ```bash
+  npm install react-router-dom@6.26.1
+  ```
+- Port in use: set `PORT=3001` before `npm start`.
+- If fast refresh misbehaves, ensure only one dev server is running.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
